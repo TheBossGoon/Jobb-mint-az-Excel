@@ -12,7 +12,7 @@ namespace ConsoleAppJobbMintAzExcell
 
         public List<Auto> Autok { get => new List<Auto>(autok); }
 
-        HashSet<string> LehetsegesAutoMarkak = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
+        HashSet<string> PartnerAutoMarkakListaja = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
             "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
             "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
             "Ferrari", "Suziki"};
@@ -25,9 +25,13 @@ namespace ConsoleAppJobbMintAzExcell
         public void FelVetel(string neve, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
             Auto auto = new Auto(neve, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
-            if (berlesAra > 0 && LehetsegesAutoMarkak.Contains(neve))
+            if (berlesAra > 0 && PartnerAutoMarkakListaja.Contains(neve))
             {
                 autok.Add(auto);
+            }
+            else
+            {
+                Console.WriteLine("Nulla vagy alacsonyabb a bérlési ára vagy pedig nincs ilyen nevű kocsi a partner márkák listájában.");
             }
         }
     }
