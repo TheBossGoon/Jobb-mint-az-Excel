@@ -49,6 +49,7 @@ namespace ConsoleAppJobbMintAzExcell
                         FelVetel(sor[0], sor[1], long.Parse(sor[2]), Convert.ToBoolean(sor[3]), Convert.ToDateTime(sor[4]), Convert.ToDateTime(sor[5]), Convert.ToBoolean(sor[6]));
                     }
                 }
+                Console.WriteLine("Sikeres volt a fájl beolvasás.");
             }
             catch (Exception ex)
             {
