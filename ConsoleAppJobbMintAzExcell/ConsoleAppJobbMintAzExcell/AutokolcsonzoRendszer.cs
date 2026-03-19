@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppJobbMintAzExcell
 {
-    internal class Program
+    internal class AutokolcsonzoRendszer
     {
-        static void Main(string[] args)
-        {
+        List<Auto> autok;
 
-        }
+        public List<Auto> Autok { get => new List<Auto>(autok); }
     }
 }

@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppJobbMintAzExcell
 {
-    internal class Program
+    internal class Auto
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
