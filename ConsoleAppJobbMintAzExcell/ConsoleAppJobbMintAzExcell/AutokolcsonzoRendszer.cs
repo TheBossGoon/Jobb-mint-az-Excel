@@ -12,15 +12,20 @@ namespace ConsoleAppJobbMintAzExcell
 
         public List<Auto> Autok { get => new List<Auto>(autok); }
 
+        HashSet<string> LehetsegesAutoMarkak = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
+            "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
+            "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
+            "Ferrari", "Suziki"};
+
         public AutokolcsonzoRendszer()
         {
             this.autok = new List<Auto>();
         }
 
-        public void FelVetel(string neve, long berlesAra, bool vanbiztositasa)
+        public void FelVetel(string neve, long berlesAra, bool vanBerelve)
         {
-            Auto auto = new Auto(neve, berlesAra, vanbiztositasa);
-            if (berlesAra > 0)
+            Auto auto = new Auto(neve, berlesAra, vanBerelve);
+            if (berlesAra > 0 && LehetsegesAutoMarkak.Contains(neve))
             {
                 autok.Add(auto);
             }
