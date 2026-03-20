@@ -9,6 +9,7 @@ namespace ConsoleAppJobbMintAzExcell
     internal class Auto
     {
         public string Nev { get; private set; }
+        public string Marka { get; private set; }
         public long BerlesAra { get; private set; }
         public bool VanBerelve { get; private set; }
         public DateTime KiberlesKezdete { get; private set; }
@@ -21,9 +22,10 @@ namespace ConsoleAppJobbMintAzExcell
             "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
             "Ferrari", "Suziki"};
 
-        public Auto(string Nev, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
+        public Auto(string Nev, string Marka, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
         {
             this.Nev = Nev;
+            this.Marka = Marka;
             this.BerlesAra = BerlesAra;
             this.VanBerelve = VanBerelve;
             this.KiberlesKezdete = KiberlesKezdete;
@@ -52,18 +54,18 @@ namespace ConsoleAppJobbMintAzExcell
             if (ujAr >= 0) BerlesAra = ujAr;
             else Console.WriteLine("Az ára nem lehet kisebb mint 0!");
         }
-
         public void BiztositasTorlese()
         {
             if (VanBiztositas == true) VanBiztositas = false;
             else Console.WriteLine("Nincs biztosítás amit törölni lehetne!");
         }
-
         public void BiztositasHozzaadas()
         {
             if (VanBiztositas == false) VanBiztositas = true;
             else Console.WriteLine("Már van rajta biztosítás!");
         }
+        public void Berles() { }
+
         public override string ToString()
         {
             return $"jelenleg nincs nev";
