@@ -20,7 +20,7 @@ namespace ConsoleAppJobbMintAzExcell
             "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
             "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
             "Ferrari", "Suziki"};
-        
+
         public Auto(string Nev, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
         {
             this.Nev = Nev;

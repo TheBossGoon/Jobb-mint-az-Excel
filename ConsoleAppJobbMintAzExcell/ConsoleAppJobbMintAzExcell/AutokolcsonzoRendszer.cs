@@ -22,9 +22,9 @@ namespace ConsoleAppJobbMintAzExcell
             this.autok = new List<Auto>();
         }
 
-        public void FelVetel(string neve, long berlesAra, bool vanBerelve)
+        public void FelVetel(string neve, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
-            Auto auto = new Auto(neve, berlesAra, vanBerelve);
+            Auto auto = new Auto(neve, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
             if (berlesAra > 0 && LehetsegesAutoMarkak.Contains(neve))
             {
                 autok.Add(auto);
