@@ -53,6 +53,12 @@ namespace ConsoleAppJobbMintAzExcell
             else Console.WriteLine("Az ára nem lehet kisebb mint 0!");
         }
 
+        public void BiztositasTorlese()
+        {
+            if (VanBiztositas == true) VanBiztositas = false;
+            else Console.WriteLine("Nincs biztosítás amit törölni lehetne!");
+        }
+
         public override string ToString()
         {
             return $"jelenleg nincs nev";
