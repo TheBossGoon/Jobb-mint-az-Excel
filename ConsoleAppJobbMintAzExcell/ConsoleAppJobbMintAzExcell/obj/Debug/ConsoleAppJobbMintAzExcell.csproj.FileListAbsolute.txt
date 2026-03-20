@@ -1,0 +1,2 @@
+C:\Users\ojetimi-puha.morgan\Documents\GitHub\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.csproj.AssemblyReference.cache
+C:\Users\ojetimi-puha.morgan\Documents\GitHub\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.csproj.CoreCompileInputs.cache

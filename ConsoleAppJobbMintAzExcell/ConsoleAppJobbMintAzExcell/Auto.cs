@@ -8,25 +8,32 @@ namespace ConsoleAppJobbMintAzExcell
 {
     internal class Auto
     {
-        public string Nev {  get; }
+        public string Nev { get; }
         public long BerlesAra { get; }
-        public bool VanBerelve { get; }
-        public bool VanBiztositas { get; }
-        public DateTime BiztositasKezdete { get;}
+        public bool VanBerelve = false { get; }
         public DateTime KiberlesKezdete { get; }
         public DateTime KiberlesVege { get; }
-        
+        public bool VanBiztositas = false { get; }
 
-        HashSet<string> LehetsegesAutoMarkak = {"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
+
+        HashSet<string> LehetsegesAutoMarkak = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
             "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
             "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
             "Ferrari", "Suziki"};
-
-        public Auto(string Nev, long BerlesAra, bool VanBiztositas ) 
+        
+        public Auto(string Nev, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
         {
             this.Nev = Nev;
             this.BerlesAra = BerlesAra;
+            this.VanBerelve = VanBerelve;
+            this.KiberlesKezdete = KiberlesKezdete;
+            this.KiberlesVege = KiberlesVege;
             this.VanBiztositas = VanBiztositas;
+        }
+
+        public override string ToString()
+        {
+            return $"jelenleg nincs nev";
         }
     }
 }
