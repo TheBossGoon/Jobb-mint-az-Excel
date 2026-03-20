@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\Juhasz.Laszlo\\Desktop\\Juh\u00E1sz L\u00E1szl\u00F3 11F\\IKT\\ujjabbHazi\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\Juhasz.Laszlo\\Desktop\\Juh\u00E1sz L\u00E1szl\u00F3 11F\\IKT\\ujjabbHazi\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|c:\\users\\juhasz.laszlo\\desktop\\juh\u00E1sz l\u00E1szl\u00F3 11f\\ikt\\ujjabbhazi\\jobb-mint-az-excel\\consoleappjobbmintazexcell\\consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|c:\\users\\juhasz.laszlo\\desktop\\juh\u00E1sz l\u00E1szl\u00F3 11f\\ikt\\ujjabbhazi\\jobb-mint-az-excel\\consoleappjobbmintazexcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\Juhasz.Laszlo\\Desktop\\Juh\u00E1sz L\u00E1szl\u00F3 11F\\IKT\\ujjabbHazi\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,8 +34,7 @@
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Auto.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAmwDEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T20:29:16.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T20:29:16.763Z"
             },
             {
               "$type": "Document",
@@ -45,7 +44,7 @@
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "ToolTip": "C:\\Users\\Juhasz.Laszlo\\Desktop\\Juh\u00E1sz L\u00E1szl\u00F3 11F\\IKT\\ujjabbHazi\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDAAAACzAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowDMAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T20:29:16.885Z",
               "EditorCaption": ""
@@ -60,8 +59,7 @@
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T20:29:16.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T20:29:16.889Z"
             }
           ]
         }
