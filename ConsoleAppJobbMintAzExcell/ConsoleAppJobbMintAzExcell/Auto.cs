@@ -69,7 +69,17 @@ namespace ConsoleAppJobbMintAzExcell
             KiberlesKezdete = BerlesKezdet;
             KiberlesVege = BerlesVeg;
         }
+        public void BerlesTorlese()
+        {
+            if (VanBerelve)
+            {
+                VanBerelve = false;
+                KiberlesKezdete = new DateTime(0);
+                KiberlesVege = new DateTime(0);
+            }
+            else Console.WriteLine("Nincs mit törölni!");
 
+        }   
         public override string ToString()
         {
             return $"jelenleg nincs nev";
