@@ -8,12 +8,12 @@ namespace ConsoleAppJobbMintAzExcell
 {
     internal class Auto
     {
-        public string Nev { get; }
-        public long BerlesAra { get; }
-        public bool VanBerelve { get; }
-        public DateTime KiberlesKezdete { get; }
-        public DateTime KiberlesVege { get; }
-        public bool VanBiztositas { get; }
+        public string Nev { get; private set; }
+        public long BerlesAra { get; private set; }
+        public bool VanBerelve { get; private set; }
+        public DateTime KiberlesKezdete { get; private set; }
+        public DateTime KiberlesVege { get; private set; }
+        public bool VanBiztositas { get; private set; }
 
 
         HashSet<string> LehetsegesAutoMarkak = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
@@ -31,9 +31,32 @@ namespace ConsoleAppJobbMintAzExcell
             this.VanBiztositas = VanBiztositas;
         }
 
+        public void NevValtoztatas(string ujNev)
+        {
+            if (!LehetsegesAutoMarkak.Contains(ujNev))  Nev = ujNev;
+            else Console.WriteLine("Ilyen automárka nem létezik!");          
+        }
+        public void BerlesAranakValtoztatas(string ujAr)
+        {
+            try
+            {
+                BerlesAranakValtoztatas(long.Parse(ujAr));
+            }   
+            catch 
+            {
+                Console.WriteLine("Nem megfelelo elnevezes!");
+            }
+        }
+        public void BerlesAranakValtoztatas(long ujAr)
+        {
+            if (ujAr >= 0) BerlesAra = ujAr;
+            else Console.WriteLine("Az ára nem lehet kisebb mint 0!");
+        }
+
         public override string ToString()
         {
             return $"jelenleg nincs nev";
         }
+
     }
 }

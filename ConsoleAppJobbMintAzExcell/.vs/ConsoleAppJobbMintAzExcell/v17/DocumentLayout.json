@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|c:\\users\\ojetimi-puha.morgan\\documents\\github\\jobb-mint-az-excel\\consoleappjobbmintazexcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|c:\\users\\ojetimi-puha.morgan\\documents\\github\\jobb-mint-az-excel\\consoleappjobbmintazexcell\\consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Auto.cs",
               "DocumentMoniker": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Auto.cs",
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\Auto.cs",
               "ToolTip": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Auto.cs",
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Auto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwB0AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T18:46:21.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AutokolcsonzoRendszer.cs",
               "DocumentMoniker": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
@@ -47,18 +47,17 @@
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:40:57.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T18:40:57.393Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\Program.cs",
-              "ToolTip": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Program.cs",
-              "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ojetimi-puha.morgan\\Documents\\GitHub\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Program.cs*",
+              "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T18:28:58.183Z",
               "EditorCaption": ""
