@@ -59,6 +59,11 @@ namespace ConsoleAppJobbMintAzExcell
             else Console.WriteLine("Nincs biztosítás amit törölni lehetne!");
         }
 
+        public void BiztositasHozzaadas()
+        {
+            if (VanBiztositas == false) VanBiztositas = true;
+            else Console.WriteLine("Már van rajta biztosítás!");
+        }
         public override string ToString()
         {
             return $"jelenleg nincs nev";
