@@ -35,16 +35,16 @@ namespace ConsoleAppJobbMintAzExcell
 
         public void NevValtoztatas(string ujNev)
         {
-            if (!LehetsegesAutoMarkak.Contains(ujNev))  Nev = ujNev;
-            else Console.WriteLine("Ilyen automárka nem létezik!");          
+            if (!LehetsegesAutoMarkak.Contains(ujNev)) Nev = ujNev;
+            else Console.WriteLine("Ilyen automárka nem létezik!");
         }
         public void BerlesAranakValtoztatas(string ujAr)
         {
             try
             {
                 BerlesAranakValtoztatas(long.Parse(ujAr));
-            }   
-            catch 
+            }
+            catch
             {
                 Console.WriteLine("Nem megfelelo elnevezes!");
             }
@@ -64,7 +64,7 @@ namespace ConsoleAppJobbMintAzExcell
             if (VanBiztositas == false) VanBiztositas = true;
             else Console.WriteLine("Már van rajta biztosítás!");
         }
-        public void Berles(DateTime BerlesKezdet, DateTime BerlesVeg) 
+        public void Berles(DateTime BerlesKezdet, DateTime BerlesVeg)
         {
             KiberlesKezdete = BerlesKezdet;
             KiberlesVege = BerlesVeg;
