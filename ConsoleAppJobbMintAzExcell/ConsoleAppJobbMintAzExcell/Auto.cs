@@ -64,7 +64,11 @@ namespace ConsoleAppJobbMintAzExcell
             if (VanBiztositas == false) VanBiztositas = true;
             else Console.WriteLine("Már van rajta biztosítás!");
         }
-        public void Berles() { }
+        public void Berles(DateTime BerlesKezdet, DateTime BerlesVeg) 
+        {
+            KiberlesKezdete = BerlesKezdet;
+            KiberlesVege = BerlesVeg;
+        }
 
         public override string ToString()
         {
