@@ -56,9 +56,15 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("Nem létező fájl nevet adott meg próbálja meg újra!");
             }
         }
-    
-        public string AutoKereseseNevSzerint(string eztKeresd)
+        public Auto AutoKereseseNevSzerint(string eztKeresd)
         {
+            for (int i = 0; i < autok.Count; i++)
+            {
+                if(autok[i].Nev == eztKeresd)
+                {
+                    return 
+                }
+            }
             
         }
     
