@@ -71,6 +71,7 @@ namespace ConsoleAppJobbMintAzExcell
                 KiberlesKezdete = BerlesKezdet;
                 KiberlesVege = BerlesVeg;
             }
+            else Console.WriteLine("Már bérelve van");
         }
         public void BerlesTorlese()
         {
