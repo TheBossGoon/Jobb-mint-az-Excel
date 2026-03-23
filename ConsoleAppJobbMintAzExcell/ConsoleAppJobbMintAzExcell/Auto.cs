@@ -81,7 +81,7 @@ namespace ConsoleAppJobbMintAzExcell
                 KiberlesKezdete = new DateTime(0);
                 KiberlesVege = new DateTime(0);
             }
-            else Console.WriteLine("Nincs mit törölni!");
+            else Console.WriteLine("Ez az autó nincs bérelve, azaz nincs mit törölni!");
 
         }   
         public override string ToString()
