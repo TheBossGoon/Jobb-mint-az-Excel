@@ -66,8 +66,11 @@ namespace ConsoleAppJobbMintAzExcell
         }
         public void Berles(DateTime BerlesKezdet, DateTime BerlesVeg)
         {
-            KiberlesKezdete = BerlesKezdet;
-            KiberlesVege = BerlesVeg;
+            if (!VanBerelve)
+            {
+                KiberlesKezdete = BerlesKezdet;
+                KiberlesVege = BerlesVeg;
+            }
         }
         public void BerlesTorlese()
         {
