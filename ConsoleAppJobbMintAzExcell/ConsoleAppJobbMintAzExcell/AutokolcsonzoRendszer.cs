@@ -27,13 +27,20 @@ namespace ConsoleAppJobbMintAzExcell
         public void FelVetel(string neve, string marka, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
             Auto auto = new Auto(neve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
-            if (berlesAra > 0 && PartnerAutoMarkakListaja.Contains(neve))
+            if (berlesAra < 0)
             {
-                autok.Add(auto);
+                if (PartnerAutoMarkakListaja.Contains(neve))
+                {
+                    autok.Add(auto);
+                }
+                else
+                {
+                    Console.WriteLine("Nincs ilyen nevű kocsi a partner márkák listájában.");
+                }
             }
             else
             {
-                Console.WriteLine("Nulla vagy alacsonyabb a bérlési ára vagy pedig nincs ilyen nevű kocsi a partner márkák listájában.");
+                Console.WriteLine("Nem lehet a bérlési ár kisebb 0-nál!");
             }
         }
 
@@ -61,13 +68,13 @@ namespace ConsoleAppJobbMintAzExcell
         {
             for (int i = 0; i < autok.Count; i++)
             {
-                if(autok[i].Nev == eztKeresd)
+                if (autok[i].Nev == eztKeresd)
                 {
                     return autok[i];
                 }
             }
             return null;
         }
-    
+
     }
 }
