@@ -76,5 +76,13 @@ namespace ConsoleAppJobbMintAzExcell
             return null;
         }
 
+        public void AutokKiirasa()
+        {
+            for (int i = 0; i < autok.Count; i++)
+            {
+                Console.WriteLine($"[{i + 1}] - {autok[i].ToString()}");
+            }
+        }
+
     }
 }
