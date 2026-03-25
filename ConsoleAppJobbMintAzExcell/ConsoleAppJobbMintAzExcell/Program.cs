@@ -10,7 +10,13 @@ namespace ConsoleAppJobbMintAzExcell
     {
         static void Main(string[] args)
         {
-
+            while (true)
+            {
+                Console.WriteLine("Autókölcsönző");
+                Console.WriteLine("-----------------------");
+                Console.ReadLine();
+                Console.WriteLine();
+            }
         }
     }
 }
