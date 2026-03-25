@@ -30,6 +30,7 @@ namespace ConsoleAppJobbMintAzExcell
             if (berlesAra < 0)
             {
                 //todo ezt majd ki kell javítani hogy működjön úgy, hogy csak a szónak kell szerepelnie benne, nem a szónak, magának kell hogy legyen a neve. pl ne Opel kell hogy legyen hanem lehetne Opel-116 vagy valami ilyesmi.
+                //todo rajottem hogy ezt csak at kene irni "marka"-ra
                 if (PartnerAutoMarkakListaja.Contains(neve))
                 {
                     autok.Add(auto);
