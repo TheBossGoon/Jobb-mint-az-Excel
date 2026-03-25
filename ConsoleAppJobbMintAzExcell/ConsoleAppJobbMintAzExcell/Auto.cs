@@ -83,7 +83,7 @@ namespace ConsoleAppJobbMintAzExcell
             }
             else Console.WriteLine("Ez az autó nincs bérelve, azaz nincs mit törölni!");
 
-        }   
+        }
         public override string ToString()
         {
             return $"Autó Neve: {Nev}; Márka: {Marka}; Bérlés Ára: {BerlesAra}; Van-e Bérelve: {VanBerelve}; Kiberlés Kezdete: {KiberlesKezdete}; Kibérlés Vége: {KiberlesVege}; Van-e Biztosítás: {VanBiztositas}";
