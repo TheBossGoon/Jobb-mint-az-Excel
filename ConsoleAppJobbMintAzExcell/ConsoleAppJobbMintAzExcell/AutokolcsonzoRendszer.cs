@@ -67,13 +67,13 @@ namespace ConsoleAppJobbMintAzExcell
 
         public void AutoTorlese(int bekertIndex)
         {
-            if (bekertIndex < autok.Count && bekertIndex>=0)
+            if (bekertIndex < autok.Count && bekertIndex >= 0)
             {
                 autok.RemoveAt(bekertIndex);
             }
             else
             {
-                Console.WriteLine();
+                Console.WriteLine("Az index vagy egy negatív szám vagy pedig nagyobb mint a listában lévő elemek száma.");
             }
         }
 
