@@ -46,10 +46,10 @@ namespace ConsoleAppJobbMintAzExcell
                         marka = Console.ReadLine();
                         Console.WriteLine("Van bérelve? (Igen/Nem)");
                         string berlesBevitel = Console.ReadLine();
-                        if(berlesBevitel.ToLower() == "igen")
+                        if (berlesBevitel.ToLower() == "igen")
                         {
                             vanBerelve = true;
-                            
+
                         }
                         //Autokolcsonzo.FelVetel();
                         break;
@@ -68,13 +68,13 @@ namespace ConsoleAppJobbMintAzExcell
                         {
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
-                        
+
                         break;
                     case ConsoleKey.F9:
                         mukszik = false;
                         Console.WriteLine("Köszönjük hogy a mi autókölcsönzőrendszerünket használta Excel helyett!");
                         break;
-                        
+
                 }
             }
         }

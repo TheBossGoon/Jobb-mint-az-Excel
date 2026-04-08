@@ -83,7 +83,7 @@ namespace ConsoleAppJobbMintAzExcell
             {
                 foreach (Auto auto in autok)
                 {
-                    sw.WriteLine($"{auto.Nev};{auto.Marka};{auto.BerlesAra};");
+                    sw.WriteLine($"{auto.Nev};{auto.Marka};{auto.BerlesAra};{auto.VanBerelve};{auto.KiberlesKezdete};{auto.KiberlesVege};{auto.VanBiztositas};");
                 }
             }
         }
