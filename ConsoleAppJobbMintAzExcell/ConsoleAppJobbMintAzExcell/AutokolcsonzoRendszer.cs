@@ -77,6 +77,17 @@ namespace ConsoleAppJobbMintAzExcell
             }
         }
 
+        public void AutokListajanakKiirasaKulonFajlba(string kiirtFajlNeve)
+        {
+            using (StreamWriter sw = new StreamWriter(kiirtFajlNeve))
+            {
+                foreach (Auto auto in autok)
+                {
+                    sw.WriteLine($"{auto.Nev};{auto.Marka};{auto.BerlesAra};");
+                }
+            }
+        }
+
         public Auto AutoKereseseNevSzerint(string eztKeresd)
         {
             for (int i = 0; i < autok.Count; i++)
