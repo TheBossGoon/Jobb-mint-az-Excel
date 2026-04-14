@@ -58,8 +58,8 @@ namespace ConsoleAppJobbMintAzExcell
                         Console.WriteLine("Melyik autót szeretné kibérelni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja az autó nevét)");
-                        string kibereltAutoNeve = Console.ReadLine();
-                        if (!CheckNameValidity(kibereltAutoNeve))
+                        string kiberelendoAutoNeve = Console.ReadLine();
+                        if (!CheckNameValidity(kiberelendoAutoNeve))
                         {
                             Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
                             break;
@@ -68,7 +68,7 @@ namespace ConsoleAppJobbMintAzExcell
                         DateTime berlesVege = DateTime.Parse(Console.ReadLine());
                         try
                         {
-                            Autokolcsonzo.AutoKereseseNevSzerint(kibereltAutoNeve).Berles(DateTime.Now, berlesVege);
+                            Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
                             Console.WriteLine("Kibérlés sikeres!");
                         }
                         catch (NullReferenceException)
@@ -76,6 +76,26 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
 
+                        break;
+                    case ConsoleKey.F4:
+                        Console.WriteLine("Melyik autó bérlését szeretné törölni?");
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("(Kérem írja az autó nevét)");
+                        string kibereltAutoNeve = Console.ReadLine();
+                        if (!CheckNameValidity(kibereltAutoNeve))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
+                        try
+                        {
+                            Autokolcsonzo.AutoKereseseNevSzerint(kibereltAutoNeve).BerlesTorlese();
+                            Console.WriteLine("Kibérlés sikeres!");
+                        }
+                        catch (NullReferenceException)
+                        {
+                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                        }
                         break;
                     case ConsoleKey.F9:
                         mukszik = false;
