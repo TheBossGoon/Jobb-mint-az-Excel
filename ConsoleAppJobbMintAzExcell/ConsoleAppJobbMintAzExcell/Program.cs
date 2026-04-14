@@ -79,6 +79,39 @@ namespace ConsoleAppJobbMintAzExcell
 
                         break;
                     case ConsoleKey.F4:
+                        Console.WriteLine("Melyik autót szeretné kibérelni?");
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("(Kérem írja le az autó nevét)");
+                        string berMegvaltatoztatandoNev = Console.ReadLine();
+                        if (!CheckNameValidity(berMegvaltatoztatandoNev))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
+                        Console.WriteLine("Mennyi legyen az új bérlési ár?");
+                        try
+                        {
+                            long ujBerlesiAr = long.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Nem számokat írt be új bérlési árnak!");
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.WriteLine("Túl nagy számot írt be!");
+                        }
+                        try
+                        {
+                            //javitsd!
+                            //Autokolcsonzo.AutoKereseseNevSzerint(berMegvaltatoztatandoNev).BerlesAranakValtoztatas(ujBerlesiAr);
+                            Console.WriteLine("Kibérlés sikeres!");
+                        }
+                        catch (NullReferenceException)
+                        {
+                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                        }
+                        
                         break;
                     case ConsoleKey.F5:
 
