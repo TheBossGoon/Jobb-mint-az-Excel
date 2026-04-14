@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,11 +59,17 @@ namespace ConsoleAppJobbMintAzExcell
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja az autó nevét)");
                         string kibereltAutoNeve = Console.ReadLine();
+                        if (!CheckNameValidity(kibereltAutoNeve))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
                         Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ/HH/NN)");
                         DateTime berlesVege = DateTime.Parse(Console.ReadLine());
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(kibereltAutoNeve).Berles(DateTime.Now, berlesVege);
+                            Console.WriteLine("Kibérlés sikeres!");
                         }
                         catch (NullReferenceException)
                         {
@@ -78,12 +85,10 @@ namespace ConsoleAppJobbMintAzExcell
                 }
             }
         }
-        //static void NoSpecialCharactersInInput(string input)
-        //{
-        //    if (input.Contains(''))
-        //    {
-
-        //    }
-        //}
-    }
+        static bool CheckNameValidity (string input)
+        {
+            if (input.Contains(';') || input.Contains(':')) return false;
+            return true;
+        }
+}
 }
