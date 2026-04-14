@@ -25,8 +25,10 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("F4: Autó Bérlési Árának Megváltoztatása");
                 Console.WriteLine("F5: Autó Nevének Megváltoztása");
                 Console.WriteLine("F6: Autó Bérlésének Törlése");
-                Console.WriteLine("F7: Autó Törlése a Rendszerből");
-                Console.WriteLine("F9: Kilépés.");
+                Console.WriteLine("F7: Autó Biztosításának hozzáadása");
+                Console.WriteLine("F8: Autó Biztosításának Törlése a Rendszerből");
+                Console.WriteLine("F9: Autó Törlése a Rendszerből");
+                Console.WriteLine("F10: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
 
@@ -105,7 +107,7 @@ namespace ConsoleAppJobbMintAzExcell
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(berMegvaltatoztatandoNev).BerlesAranakValtoztatas(ujBerlesiAr);
-                            Console.WriteLine("Kibérlés sikeres!");
+                            Console.WriteLine("Bér megváltoztatása sikeres!");
                         }
                         catch (NullReferenceException)
                         {
@@ -163,8 +165,30 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         break;
                     case ConsoleKey.F7:
+                        Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("(Kérem írja le az autó nevét)");
+                        string biztositandoAuto = Console.ReadLine();
+                        if (!CheckNameValidity(biztositandoAuto))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
+                        try
+                        {
+                            Autokolcsonzo.AutoKereseseNevSzerint(biztositandoAuto).BiztositasHozzaadas();
+                            Console.WriteLine("Autó biztosítása sikeres!");
+                        }
+                        catch (NullReferenceException)
+                        {
+                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                        }
+                        break;
+                    case ConsoleKey.F8:
                         break;
                     case ConsoleKey.F9:
+                        break;
+                    case ConsoleKey.F10:
                         mukszik = false;
                         Console.WriteLine("Köszönjük hogy a mi autókölcsönzőrendszerünket használta Excel helyett!");
                         break;
