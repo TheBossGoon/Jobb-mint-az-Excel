@@ -54,14 +54,21 @@ namespace ConsoleAppJobbMintAzExcell
                     while (!sr.EndOfStream)
                     {
                         string[] sor = sr.ReadLine().Split(';');
-                        FelVetel(sor[0], sor[1], long.Parse(sor[2]), Convert.ToBoolean(sor[3]), Convert.ToDateTime(sor[4]), Convert.ToDateTime(sor[5]), Convert.ToBoolean(sor[6]));
+                        string[] tarto = new string[6];
+                        
+                        for (int i = 0; i < 8; i++)
+                        {
+                            string[] belsoSor = sor[i].Split(':');
+                            tarto[i] = belsoSor[i];
+                        }
+                        FelVetel(tarto[0], tarto[1], long.Parse(tarto[2]), Convert.ToBoolean(tarto[3]), Convert.ToDateTime(tarto[4]), Convert.ToDateTime(tarto[5]), Convert.ToBoolean(tarto[6]));
                     }
                 }
                 Console.WriteLine("Sikeres volt a fájl beolvasás.");
             }
-            catch (Exception ex)
+            catch (FileNotFoundException)
             {
-                Console.WriteLine("Nem létező fájl nevet adott meg próbálja meg újra!");
+                Console.WriteLine("Nem létező fájl nevet adott meg, próbálja meg újra!");
             }
         }
 

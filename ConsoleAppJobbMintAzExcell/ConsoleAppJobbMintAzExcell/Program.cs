@@ -78,5 +78,12 @@ namespace ConsoleAppJobbMintAzExcell
                 }
             }
         }
+        //static void NoSpecialCharactersInInput(string input)
+        //{
+        //    if (input.Contains(''))
+        //    {
+
+        //    }
+        //}
     }
 }
