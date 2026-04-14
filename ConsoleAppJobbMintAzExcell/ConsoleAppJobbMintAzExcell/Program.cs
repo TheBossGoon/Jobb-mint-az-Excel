@@ -89,9 +89,10 @@ namespace ConsoleAppJobbMintAzExcell
                             break;
                         }
                         Console.WriteLine("Mennyi legyen az új bérlési ár?");
+                        long ujBerlesiAr = -1;
                         try
                         {
-                            long ujBerlesiAr = long.Parse(Console.ReadLine());
+                            ujBerlesiAr = long.Parse(Console.ReadLine());
                         }
                         catch (FormatException)
                         {
@@ -103,8 +104,7 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         try
                         {
-                            //javitsd!
-                            //Autokolcsonzo.AutoKereseseNevSzerint(berMegvaltatoztatandoNev).BerlesAranakValtoztatas(ujBerlesiAr);
+                            Autokolcsonzo.AutoKereseseNevSzerint(berMegvaltatoztatandoNev).BerlesAranakValtoztatas(ujBerlesiAr);
                             Console.WriteLine("Kibérlés sikeres!");
                         }
                         catch (NullReferenceException)

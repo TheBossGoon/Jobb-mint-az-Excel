@@ -52,7 +52,7 @@ namespace ConsoleAppJobbMintAzExcell
         public void BerlesAranakValtoztatas(long ujAr)
         {
             if (ujAr >= 0) BerlesAra = ujAr;
-            else Console.WriteLine("Az ára nem lehet kisebb mint 0!");
+            else Console.WriteLine("Kérem adjon meg egy normális értéket!");
         }
         public void BiztositasTorlese()
         {
