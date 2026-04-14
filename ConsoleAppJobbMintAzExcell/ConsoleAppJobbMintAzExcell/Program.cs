@@ -185,6 +185,24 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         break;
                     case ConsoleKey.F8:
+                        Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("(Kérem írja le az autó nevét)");
+                        string biztositVeszitoAuto = Console.ReadLine();
+                        if (!CheckNameValidity(biztositVeszitoAuto))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
+                        try
+                        {
+                            Autokolcsonzo.AutoKereseseNevSzerint(biztositVeszitoAuto).BiztositasTorlese();
+                            Console.WriteLine("Autó biztosításának törlése sikeres!");
+                        }
+                        catch (NullReferenceException)
+                        {
+                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                        }
                         break;
                     case ConsoleKey.F9:
                         break;
