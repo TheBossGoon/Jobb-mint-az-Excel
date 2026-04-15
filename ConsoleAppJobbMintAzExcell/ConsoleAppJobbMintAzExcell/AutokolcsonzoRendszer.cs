@@ -80,7 +80,7 @@ namespace ConsoleAppJobbMintAzExcell
             }
             else
             {
-                Console.WriteLine("Az index vagy egy negatív szám vagy pedig nagyobb mint a listában lévő elemek száma.");
+                Console.WriteLine("Az autó nincs benne a listában!");
             }
         }
 
