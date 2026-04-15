@@ -28,7 +28,7 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("F7: Autó Biztosításának hozzáadása");
                 Console.WriteLine("F8: Autó Biztosításának Törlése a Rendszerből");
                 Console.WriteLine("F9: Autó Törlése a Rendszerből");
-                Console.WriteLine("F10: Kilépés.");
+                Console.WriteLine("F12: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
 
@@ -205,8 +205,28 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         break;
                     case ConsoleKey.F9:
+                        Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("(Kérem írja le az autó nevét)");
+                        string torlendoAuto = Console.ReadLine();
+                        if (!CheckNameValidity(torlendoAuto))
+                        {
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
+                        }
+                        
+                        for (int i = 0; i < Autokolcsonzo.Autok.Count; i++)
+                        {
+                            if (Autokolcsonzo.Autok[i].Nev == torlendoAuto)
+                            {
+                                Autokolcsonzo.AutoTorlese(i);
+                                Console.WriteLine("Autó törlése sikeres!");
+                                break;
+                            }
+                            Console.WriteLine("Nincs ilyen autó a listában!");
+                        }
                         break;
-                    case ConsoleKey.F10:
+                    case ConsoleKey.F12:
                         mukszik = false;
                         Console.WriteLine("Köszönjük hogy a mi autókölcsönzőrendszerünket használta Excel helyett!");
                         break;
