@@ -47,7 +47,10 @@ namespace ConsoleAppJobbMintAzExcell
                     case ConsoleKey.F2:
                         string Autoneve, marka;
                         long berlesAra = -1;
-                        bool vanBerelve, vanbiztositva = false;
+                        bool vanBerelve = false;
+                        bool vanbiztositva = false;
+                        DateTime kiberlesKezdete = DateTime.MinValue;
+                        DateTime kiberlesVege = DateTime.MinValue;
 
                         Console.WriteLine("Kérem adja meg az Autó nevét");
                         Autoneve = Console.ReadLine();
@@ -60,21 +63,31 @@ namespace ConsoleAppJobbMintAzExcell
                         Console.WriteLine("Van bérelve? (Igen/Nem)");
                         string berlesBevitel = Console.ReadLine();
                         if (berlesBevitel.ToLower() == "igen" || berlesBevitel.ToLower() == "i" || berlesBevitel.ToLower() == "y" || berlesBevitel.ToLower() == "yes")
+
                         {
                             vanBerelve = true;
                             string berlesAraInput = Console.ReadLine();
                             if (long.TryParse(berlesAraInput, out berlesAra))
                             {
-                                if (berlesAra < 0 ) 
-                                { 
-                                    Console.WriteLine("");
+                                if (berlesAra < 0)
+                                {
+                                    Console.WriteLine("Bérlés ára nem lehet kisebb 0-nál!");
                                     break;
                                 }
+
                             }
-                            
+                            Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
 
                         }
-                        //Autokolcsonzo.FelVetel();
+                        Console.WriteLine("Szeretne Biztosítást? (Igen/Nem)");
+                        string biztositasInput = Console.ReadLine();
+                        if (biztositasInput.ToLower() == "igen" || biztositasInput.ToLower() == "i" || biztositasInput.ToLower() == "y" || biztositasInput.ToLower() == "yes")
+                        {
+                            vanbiztositva = true;
+                        }
+
+                        Autokolcsonzo.FelVetel(Autoneve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanbiztositva);
+                        Console.WriteLine("Autó sikeresen hozzáadva az adatbázishoz!");
                         break;
                     case ConsoleKey.F3:
                         Console.WriteLine("Melyik autót szeretné kibérelni?");
@@ -148,7 +161,7 @@ namespace ConsoleAppJobbMintAzExcell
                         {
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
-                        
+
                         break;
                     case ConsoleKey.F5:
 
@@ -248,7 +261,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
                             break;
                         }
-                        
+
                         for (int i = 0; i < Autokolcsonzo.Autok.Count; i++)
                         {
                             if (Autokolcsonzo.Autok[i].Nev == torlendoAuto)
@@ -268,10 +281,10 @@ namespace ConsoleAppJobbMintAzExcell
                 }
             }
         }
-        static bool CheckNameValidity (string input)
+        static bool CheckNameValidity(string input)
         {
             if (input.Contains(';') || input.Contains(':')) return false;
             return true;
         }
-}
+    }
 }

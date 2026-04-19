@@ -28,21 +28,15 @@ namespace ConsoleAppJobbMintAzExcell
         {
 
             Auto auto = new Auto(neve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
-            if (berlesAra >= 0)
+            if (PartnerAutoMarkakListaja.Contains(marka))
             {
-                if (PartnerAutoMarkakListaja.Contains(marka))
-                {
-                    autok.Add(auto);
-                }
-                else
-                {
-                    Console.WriteLine("Nincs ilyen nevű kocsi a partner márkák listájában.");
-                }
+                autok.Add(auto);
             }
             else
             {
-                Console.WriteLine("Nem lehet a bérlési ár kisebb 0-nál!");
+                Console.WriteLine("Nincs ilyen nevű kocsi a partner márkák listájában.");
             }
+
         }
 
         public void AutokBeolvasasa(string beolvasandoFajl)
@@ -56,7 +50,7 @@ namespace ConsoleAppJobbMintAzExcell
                     {
                         string[] sor = sr.ReadLine().Split(';');
                         string[] tarto = new string[6];
-                        
+
                         for (int i = 0; i < 8; i++)
                         {
                             string[] belsoSor = sor[i].Split(':');
