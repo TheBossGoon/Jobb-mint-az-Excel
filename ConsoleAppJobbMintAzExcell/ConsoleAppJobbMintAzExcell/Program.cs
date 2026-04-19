@@ -62,44 +62,66 @@ namespace ConsoleAppJobbMintAzExcell
                         marka = Console.ReadLine();
                         Console.WriteLine("Van bérelve? (Igen/Nem)");
                         string berlesBevitel = Console.ReadLine();
-                        if (berlesBevitel.ToLower() == "igen" || berlesBevitel.ToLower() == "i" || berlesBevitel.ToLower() == "y" || berlesBevitel.ToLower() == "yes")
 
+                        bool helyesBerlesValasz = false;
+                        do
                         {
-                            vanBerelve = true;
-                            Console.WriteLine("Mennyiért lehessen bérelni az autót?");
-                            string berlesAraInput = Console.ReadLine();
-                            if (long.TryParse(berlesAraInput, out berlesAra))
+                            if (berlesBevitel.ToLower() == "n" || berlesBevitel.ToLower() == "nem" || berlesBevitel.ToLower() == "no")
                             {
-                                if (berlesAra < 0)
+                                helyesBerlesValasz = true;
+                            }
+                            else if (berlesBevitel.ToLower() == "igen" || berlesBevitel.ToLower() == "i" || berlesBevitel.ToLower() == "y" || berlesBevitel.ToLower() == "yes")
+                            {
+                                vanBerelve = true;
+                                Console.WriteLine("Mennyiért lehessen bérelni az autót?");
+                                string berlesAraInput = "";
+
+
+                                berlesAraInput = Console.ReadLine();
+                                if (long.TryParse(berlesAraInput, out berlesAra))
                                 {
-                                    Console.WriteLine("Bérlés ára nem lehet kisebb 0-nál!");
-                                    break;
-                                }
-                                Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
-                                try
-                                {
-                                    kiberlesVege = DateTime.Parse(Console.ReadLine());
-                                    if (kiberlesVege <= kiberlesKezdete + TimeSpan.FromHours(24 * 90)) 
+                                    if (berlesAra < 0)
                                     {
-                                        Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
+                                        Console.WriteLine("Bérlés ára nem lehet kisebb 0-nál!");
                                         break;
                                     }
+                                    Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
+                                    try
+                                    {
+                                        kiberlesVege = DateTime.Parse(Console.ReadLine());
+                                        if (kiberlesVege <= kiberlesKezdete + TimeSpan.FromHours(24 * 90))
+                                        {
+                                            Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
+                                            break;
+                                        }
+                                        helyesBerlesValasz = true;
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        Console.WriteLine("Nem megfelelő a formázása a megadott idő az kért formázás alapján!");
+                                    }
                                 }
-                                catch (FormatException)
-                                {
-                                    Console.WriteLine("Nem megfelelő a formázása a megadott idő az kért formázás alapján!");
-                                }
-                            }
-                            Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
+                                Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
 
-                        }
+                            }
+                            else Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!");
+                        } while (!helyesBerlesValasz);
                         Console.WriteLine("Szeretne Biztosítást? (Igen/Nem)");
                         string biztositasInput = Console.ReadLine();
-                        if (biztositasInput.ToLower() == "igen" || biztositasInput.ToLower() == "i" || biztositasInput.ToLower() == "y" || biztositasInput.ToLower() == "yes")
+                        bool helyesbiztositasInput = false;
+                        do
                         {
-                            vanbiztositva = true;
-                        }
-                        
+                            if (biztositasInput.ToLower() == "n" || berlesBevitel.ToLower() == "nem" || berlesBevitel.ToLower() == "no")
+                            {
+                                helyesbiztositasInput = true;
+                            }
+                            if (biztositasInput.ToLower() == "igen" || biztositasInput.ToLower() == "i" || biztositasInput.ToLower() == "y" || biztositasInput.ToLower() == "yes")
+                            {
+                                helyesbiztositasInput = true;
+                                vanbiztositva = true;
+                            }
+                        } while (!helyesbiztositasInput);
+
                         Autokolcsonzo.FelVetel(Autoneve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanbiztositva);
                         Console.WriteLine("Autó sikeresen hozzáadva az adatbázishoz!");
                         break;
