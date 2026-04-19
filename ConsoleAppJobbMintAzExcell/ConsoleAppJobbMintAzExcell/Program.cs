@@ -24,14 +24,15 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("Autókölcsönző");
                 Console.WriteLine("-----------------------");
                 Console.WriteLine("F1: Autókölcsönzö Beolvasása");
-                Console.WriteLine("F2: Autó Kreálása");
-                Console.WriteLine("F3: Autó Bérlése");
-                Console.WriteLine("F4: Autó Bérlési Árának Megváltoztatása");
-                Console.WriteLine("F5: Autó Nevének Megváltoztása");
-                Console.WriteLine("F6: Autó Bérlésének Törlése");
-                Console.WriteLine("F7: Autó Biztosításának hozzáadása");
-                Console.WriteLine("F8: Autó Biztosításának Törlése a Rendszerből");
-                Console.WriteLine("F9: Autó Törlése a Rendszerből");
+                Console.WriteLine("F2: Autók Kiírása");
+                Console.WriteLine("F3: Autó Kreálása");
+                Console.WriteLine("F4: Autó Bérlése");
+                Console.WriteLine("F5: Autó Bérlési Árának Megváltoztatása");
+                Console.WriteLine("F6: Autó Nevének Megváltoztása");
+                Console.WriteLine("F7: Autó Bérlésének Törlése");
+                Console.WriteLine("F8: Autó Biztosításának hozzáadása");
+                Console.WriteLine("F9: Autó Biztosításának Törlése a Rendszerből");
+                Console.WriteLine("F10: Autó Törlése a Rendszerből");
                 Console.WriteLine("F12: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
@@ -45,6 +46,10 @@ namespace ConsoleAppJobbMintAzExcell
                         Autokolcsonzo.AutokBeolvasasa(BeolvasasInput);
                         break;
                     case ConsoleKey.F2:
+                        Autokolcsonzo.AutokKiirasa();
+                        Console.WriteLine("\n");
+                        break;
+                    case ConsoleKey.F3:
                         string Autoneve, marka;
                         long berlesAra = -1;
                         bool vanBerelve = false;
@@ -56,7 +61,8 @@ namespace ConsoleAppJobbMintAzExcell
                         Autoneve = Console.ReadLine();
                         if (!CheckNameValidity(Autoneve))
                         {
-                            Console.WriteLine("Ne használjon ");
+                            Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
+                            break;
                         }
                         Console.WriteLine("Márkáját (Opel, Toyota, BYD, Volkswagen, Tesla, Honda, BMW, Hyundai, Ford, Mercedes-Benz, Geely Group, Kia, Nissan, Porsche, Subaru, General Motors, GM, Volvo, Audi, Mazda, Ferrari, Suziki)");
                         marka = Console.ReadLine();
@@ -125,7 +131,7 @@ namespace ConsoleAppJobbMintAzExcell
                         Autokolcsonzo.FelVetel(Autoneve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanbiztositva);
                         Console.WriteLine("Autó sikeresen hozzáadva az adatbázishoz!");
                         break;
-                    case ConsoleKey.F3:
+                    case ConsoleKey.F4:
                         Console.WriteLine("Melyik autót szeretné kibérelni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
@@ -166,7 +172,7 @@ namespace ConsoleAppJobbMintAzExcell
                         }
 
                         break;
-                    case ConsoleKey.F4:
+                    case ConsoleKey.F5:
                         Console.WriteLine("Melyik autót szeretné kibérelni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
@@ -201,7 +207,7 @@ namespace ConsoleAppJobbMintAzExcell
                         }
 
                         break;
-                    case ConsoleKey.F5:
+                    case ConsoleKey.F6:
 
                         Console.WriteLine("Melyik autó nevét szeretné megváltoztatni?");
                         Autokolcsonzo.AutokKiirasa();
@@ -229,7 +235,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
                         break;
-                    case ConsoleKey.F6:
+                    case ConsoleKey.F7:
                         Console.WriteLine("Melyik autó bérlését szeretné törölni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
@@ -249,7 +255,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
                         break;
-                    case ConsoleKey.F7:
+                    case ConsoleKey.F8:
                         Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
@@ -269,7 +275,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
                         break;
-                    case ConsoleKey.F8:
+                    case ConsoleKey.F9:
                         Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
@@ -289,7 +295,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
                         break;
-                    case ConsoleKey.F9:
+                    case ConsoleKey.F10:
                         Console.WriteLine("Melyik autónak szeretne biztosítst adni?");
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("(Kérem írja le az autó nevét)");
