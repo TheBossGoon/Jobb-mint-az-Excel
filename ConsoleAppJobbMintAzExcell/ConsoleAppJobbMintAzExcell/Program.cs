@@ -73,7 +73,7 @@ namespace ConsoleAppJobbMintAzExcell
                             break;
                         }
                         Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ/HH/NN)");
-                        DateTime berlesVege = DateTime.Now;
+                        DateTime berlesVege = DateTime.MinValue;
                         try
                         {
                             berlesVege = DateTime.Parse(Console.ReadLine());
@@ -84,8 +84,16 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         try
                         {
-                            Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
-                            Console.WriteLine("Kibérlés sikeres!");
+                            if (berlesVege == DateTime.MinValue)
+                            {
+                                Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
+                                Console.WriteLine("Kibérlés sikeres!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Nem adott meg egy helyesen megformázott dátumot!");
+                                Console.WriteLine("Kibérlés sikertelen!");
+                            }
                         }
                         catch (NullReferenceException)
                         {
