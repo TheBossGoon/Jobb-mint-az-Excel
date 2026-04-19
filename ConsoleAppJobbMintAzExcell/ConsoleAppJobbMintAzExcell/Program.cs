@@ -15,6 +15,10 @@ namespace ConsoleAppJobbMintAzExcell
 
             bool mukszik = true;
 
+            Autokolcsonzo.FelVetel("auto1", "Opel", 12331232, true, DateTime.Now, DateTime.Now, true);
+            Autokolcsonzo.FelVetel("auto2", "BYD", 123, false, DateTime.Now, DateTime.Now, false);
+
+
             while (mukszik)
             {
                 Console.WriteLine("Autókölcsönző");
@@ -58,6 +62,16 @@ namespace ConsoleAppJobbMintAzExcell
                         if (berlesBevitel.ToLower() == "igen" || berlesBevitel.ToLower() == "i" || berlesBevitel.ToLower() == "y" || berlesBevitel.ToLower() == "yes")
                         {
                             vanBerelve = true;
+                            string berlesAraInput = Console.ReadLine();
+                            if (long.TryParse(berlesAraInput, out berlesAra))
+                            {
+                                if (berlesAra < 0 ) 
+                                { 
+                                    Console.WriteLine("");
+                                    break;
+                                }
+                            }
+                            
 
                         }
                         //Autokolcsonzo.FelVetel();

@@ -26,8 +26,9 @@ namespace ConsoleAppJobbMintAzExcell
 
         public void FelVetel(string neve, string marka, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
+
             Auto auto = new Auto(neve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
-            if (berlesAra < 0)
+            if (berlesAra >= 0)
             {
                 if (PartnerAutoMarkakListaja.Contains(marka))
                 {
