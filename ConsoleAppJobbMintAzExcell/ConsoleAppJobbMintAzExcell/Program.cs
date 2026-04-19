@@ -49,7 +49,7 @@ namespace ConsoleAppJobbMintAzExcell
                         long berlesAra = -1;
                         bool vanBerelve = false;
                         bool vanbiztositva = false;
-                        DateTime kiberlesKezdete = DateTime.MinValue;
+                        DateTime kiberlesKezdete = DateTime.Now;
                         DateTime kiberlesVege = DateTime.MinValue;
 
                         Console.WriteLine("Kérem adja meg az Autó nevét");
@@ -66,6 +66,7 @@ namespace ConsoleAppJobbMintAzExcell
 
                         {
                             vanBerelve = true;
+                            Console.WriteLine("Mennyiért lehessen bérelni az autót?");
                             string berlesAraInput = Console.ReadLine();
                             if (long.TryParse(berlesAraInput, out berlesAra))
                             {
@@ -74,7 +75,20 @@ namespace ConsoleAppJobbMintAzExcell
                                     Console.WriteLine("Bérlés ára nem lehet kisebb 0-nál!");
                                     break;
                                 }
-
+                                Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
+                                try
+                                {
+                                    kiberlesVege = DateTime.Parse(Console.ReadLine());
+                                    if (kiberlesVege <= kiberlesKezdete + TimeSpan.FromHours(24 * 90)) 
+                                    {
+                                        Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
+                                        break;
+                                    }
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Nem megfelelő a formázása a megadott idő az kért formázás alapján!");
+                                }
                             }
                             Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
 
@@ -85,7 +99,7 @@ namespace ConsoleAppJobbMintAzExcell
                         {
                             vanbiztositva = true;
                         }
-
+                        
                         Autokolcsonzo.FelVetel(Autoneve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanbiztositva);
                         Console.WriteLine("Autó sikeresen hozzáadva az adatbázishoz!");
                         break;
@@ -99,7 +113,7 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
                             break;
                         }
-                        Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ/HH/NN)");
+                        Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
                         DateTime berlesVege = DateTime.MinValue;
                         try
                         {
@@ -108,6 +122,7 @@ namespace ConsoleAppJobbMintAzExcell
                         catch (FormatException)
                         {
                             Console.WriteLine("Nem megfelelő időt adott meg a formázás alapján!");
+                            break;
                         }
                         try
                         {
@@ -120,6 +135,7 @@ namespace ConsoleAppJobbMintAzExcell
                             {
                                 Console.WriteLine("Nem adott meg egy helyesen megformázott dátumot!");
                                 Console.WriteLine("Kibérlés sikertelen!");
+                                break;
                             }
                         }
                         catch (NullReferenceException)
