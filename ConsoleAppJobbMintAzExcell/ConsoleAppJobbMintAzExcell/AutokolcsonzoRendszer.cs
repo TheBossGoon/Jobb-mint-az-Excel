@@ -80,7 +80,7 @@ namespace ConsoleAppJobbMintAzExcell
 
         public void AutokListajanakKiirasaKulonFajlba(string kiirtFajlNeve)
         {
-            using (StreamWriter sw = new StreamWriter(kiirtFajlNeve))
+            using (StreamWriter sw = new StreamWriter(kiirtFajlNeve + ".txt"))
             {
                 foreach (Auto auto in autok)
                 {
