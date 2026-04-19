@@ -88,7 +88,7 @@ namespace ConsoleAppJobbMintAzExcell
         public override string ToString()
         {
             StringBuilder tostring = new StringBuilder("$Autó Neve:{Nev};\n\t Márka:{Marka};\n\t ");
-            if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{BerlesAra};\n\t Van-e Bérelve:{VanBerelve};\n\t Kiberlés Kezdete:{KiberlesKezdete};\n\t Kibérlés Vége:{KiberlesVege};\n\t ");
+            if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{this.BerlesAra};\n\t Van-e Bérelve:{this.VanBerelve};\n\t Kiberlés Kezdete:{this.KiberlesKezdete};\n\t Kibérlés Vége:{this.KiberlesVege};\n\t ");
             else tostring.Append("Van-e Bérelve:Nincs");
             if (this.VanBiztositas) tostring.Append($"Van-e Biztosítás:Van;");
             else tostring.Append($"Van-e Biztosítás:Nincs");
