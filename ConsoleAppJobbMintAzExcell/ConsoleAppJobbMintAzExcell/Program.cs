@@ -31,6 +31,7 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("F12: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
+                Console.Clear();
 
                 switch (input.Key)
                 {
@@ -41,8 +42,8 @@ namespace ConsoleAppJobbMintAzExcell
                         break;
                     case ConsoleKey.F2:
                         string Autoneve, marka;
-                        long berlesAra;
-                        bool vanBerelve, vanbiztositva;
+                        long berlesAra = -1;
+                        bool vanBerelve, vanbiztositva = false;
 
                         Console.WriteLine("Kérem adja meg az Autó nevét");
                         Autoneve = Console.ReadLine();
@@ -143,7 +144,6 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Ilyen kocsi nem létezik!");
                         }
                         break;
-                    
                     case ConsoleKey.F6:
                         Console.WriteLine("Melyik autó bérlését szeretné törölni?");
                         Autokolcsonzo.AutokKiirasa();
