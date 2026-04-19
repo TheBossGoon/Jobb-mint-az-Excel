@@ -47,11 +47,15 @@ namespace ConsoleAppJobbMintAzExcell
 
                         Console.WriteLine("Kérem adja meg az Autó nevét");
                         Autoneve = Console.ReadLine();
+                        if (!CheckNameValidity(Autoneve))
+                        {
+                            Console.WriteLine("Ne használjon ");
+                        }
                         Console.WriteLine("Márkáját (Opel, Toyota, BYD, Volkswagen, Tesla, Honda, BMW, Hyundai, Ford, Mercedes-Benz, Geely Group, Kia, Nissan, Porsche, Subaru, General Motors, GM, Volvo, Audi, Mazda, Ferrari, Suziki)");
                         marka = Console.ReadLine();
                         Console.WriteLine("Van bérelve? (Igen/Nem)");
                         string berlesBevitel = Console.ReadLine();
-                        if (berlesBevitel.ToLower() == "igen")
+                        if (berlesBevitel.ToLower() == "igen" || berlesBevitel.ToLower() == "i" || berlesBevitel.ToLower() == "y" || berlesBevitel.ToLower() == "yes")
                         {
                             vanBerelve = true;
 
@@ -69,7 +73,15 @@ namespace ConsoleAppJobbMintAzExcell
                             break;
                         }
                         Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ/HH/NN)");
-                        DateTime berlesVege = DateTime.Parse(Console.ReadLine());
+                        DateTime berlesVege = DateTime.Now;
+                        try
+                        {
+                            berlesVege = DateTime.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Nem megfelelő időt adott meg a formázás alapján!");
+                        }
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
