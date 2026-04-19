@@ -33,6 +33,7 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("F8: Autó Biztosításának hozzáadása");
                 Console.WriteLine("F9: Autó Biztosításának Törlése a Rendszerből");
                 Console.WriteLine("F10: Autó Törlése a Rendszerből");
+                Console.WriteLine("F11: Autók külön fájlba írása");
                 Console.WriteLine("F12: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
@@ -316,6 +317,12 @@ namespace ConsoleAppJobbMintAzExcell
                             }
                             Console.WriteLine("Nincs ilyen autó a listában!");
                         }
+                        break;
+                    case ConsoleKey.F11:
+                        Console.WriteLine("Kérem adja meg a fájl nevét amibe írni szeretne!");
+                        string outputFileNeve = Console.ReadLine();
+                        Autokolcsonzo.AutokListajanakKiirasaKulonFajlba(outputFileNeve);
+                        Console.WriteLine("Sikeres külön fájlba írás!");
                         break;
                     case ConsoleKey.F12:
                         mukszik = false;

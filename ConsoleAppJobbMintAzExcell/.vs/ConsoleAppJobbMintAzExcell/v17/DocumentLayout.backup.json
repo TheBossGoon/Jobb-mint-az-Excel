@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\autokolcsonzorendszer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA01BAD9-516C-484F-9685-68B803AB5F06}|ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell.csproj|solutionrelative:consoleappjobbmintazexcell\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,25 +26,26 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AutokolcsonzoRendszer.cs",
               "DocumentMoniker": "C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "ToolTip": "C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\AutokolcsonzoRendszer.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAmwGgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAUwE0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T18:05:53.966Z"
+              "WhenOpened": "2026-04-07T18:05:53.966Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Auto.cs",
               "DocumentMoniker": "C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Auto.cs",
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\Auto.cs",
               "ToolTip": "C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Auto.cs",
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Auto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA0wFoAAAB3AAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowFoAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T20:29:16.763Z",
               "EditorCaption": ""
@@ -57,7 +58,7 @@
               "RelativeDocumentMoniker": "ConsoleAppJobbMintAzExcell\\Program.cs",
               "ToolTip": "C:\\Users\\puham\\OneDrive\\Dokumentumok\\github\\Jobb-mint-az-Excel\\ConsoleAppJobbMintAzExcell\\ConsoleAppJobbMintAzExcell\\Program.cs",
               "RelativeToolTip": "ConsoleAppJobbMintAzExcell\\Program.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAUwDEAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAuwEMBAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T20:29:16.889Z",
               "EditorCaption": ""
