@@ -33,8 +33,8 @@ namespace ConsoleAppJobbMintAzExcell
                 Console.WriteLine("F8: Autó Biztosításának hozzáadása");
                 Console.WriteLine("F9: Autó Biztosításának Törlése a Rendszerből");
                 Console.WriteLine("F10: Autó Törlése a Rendszerből");
-                Console.WriteLine("F11: Autók külön fájlba írása");
-                Console.WriteLine("F12: Kilépés.");
+                Console.WriteLine("F12: Autók Külön Fájlba Írása");
+                Console.WriteLine("Esc: Kilépés.");
                 ConsoleKeyInfo input = Console.ReadKey();
                 Console.WriteLine();
                 Console.Clear();
@@ -45,7 +45,9 @@ namespace ConsoleAppJobbMintAzExcell
                         Console.WriteLine("Írja be a .txt nevét!");
                         string BeolvasasInput = Console.ReadLine();
                         Autokolcsonzo.AutokBeolvasasa(BeolvasasInput);
-                        break;
+                        Console.WriteLine("Autó sikeresen beolvasva!");
+                        Console.WriteLine("\n");
+                        break; 
                     case ConsoleKey.F2:
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("\n");
@@ -318,15 +320,15 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Nincs ilyen autó a listában!");
                         }
                         break;
-                    case ConsoleKey.F11:
+                    case ConsoleKey.F12:
                         Console.WriteLine("Kérem adja meg a fájl nevét amibe írni szeretne!");
                         string outputFileNeve = Console.ReadLine();
                         Autokolcsonzo.AutokListajanakKiirasaKulonFajlba(outputFileNeve);
                         Console.WriteLine("Sikeres külön fájlba írás!");
                         break;
-                    case ConsoleKey.F12:
+                    case ConsoleKey.Escape:
                         mukszik = false;
-                        Console.WriteLine("Köszönjük hogy a mi autókölcsönzőrendszerünket használta Excel helyett!");
+                        Console.WriteLine("Köszönjük, hogy a mi autókölcsönzőrendszerünket használta Excel helyett!");
                         break;
 
                 }

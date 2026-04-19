@@ -49,12 +49,11 @@ namespace ConsoleAppJobbMintAzExcell
                     while (!sr.EndOfStream)
                     {
                         string[] sor = sr.ReadLine().Split(';');
-                        string[] tarto = new string[6];
+                        string[] tarto = new string[7];
 
-                        for (int i = 0; i < 8; i++)
+                        for (int i = 0; i < 7; i++)
                         {
-                            string[] belsoSor = sor[i].Split(':');
-                            tarto[i] = belsoSor[i];
+                            tarto[i] = sor[i];
                         }
                         FelVetel(tarto[0], tarto[1], long.Parse(tarto[2]), Convert.ToBoolean(tarto[3]), Convert.ToDateTime(tarto[4]), Convert.ToDateTime(tarto[5]), Convert.ToBoolean(tarto[6]));
                     }
