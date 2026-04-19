@@ -87,7 +87,7 @@ namespace ConsoleAppJobbMintAzExcell
 
         public override string ToString()
         {
-            return $"Autó Neve:{Nev}; Márka:{Marka}; Bérlés Ára:{BerlesAra}; Van-e Bérelve:{VanBerelve}; Kiberlés Kezdete:{KiberlesKezdete}; Kibérlés Vége:{KiberlesVege}; Van-e Biztosítás:{VanBiztositas}";
+            return $"Autó Neve:{Nev};\n\t Márka:{Marka};\n\t Bérlés Ára:{BerlesAra};\n\t Van-e Bérelve:{VanBerelve};\n\t Kiberlés Kezdete:{KiberlesKezdete};\n\t Kibérlés Vége:{KiberlesVege};\n\t Van-e Biztosítás:{VanBiztositas}";
         }
 
     }
