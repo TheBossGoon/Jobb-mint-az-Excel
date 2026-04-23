@@ -43,7 +43,7 @@ namespace ConsoleAppJobbMintAzExcell
         {
             try
             {
-                using (StreamReader sr = new StreamReader(beolvasandoFajl))
+                using (StreamReader sr = new StreamReader(beolvasandoFajl + ".txt"))
                 {
                     string header = sr.ReadLine();
                     while (!sr.EndOfStream)
@@ -71,6 +71,8 @@ namespace ConsoleAppJobbMintAzExcell
             if (bekertIndex < autok.Count && bekertIndex >= 0)
             {
                 autok.RemoveAt(bekertIndex);
+                Console.WriteLine("Autó törlése sikeres!");
+
             }
             else
             {

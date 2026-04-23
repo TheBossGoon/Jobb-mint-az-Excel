@@ -45,7 +45,6 @@ namespace ConsoleAppJobbMintAzExcell
                         Console.WriteLine("Írja be a .txt nevét!");
                         string BeolvasasInput = Console.ReadLine();
                         Autokolcsonzo.AutokBeolvasasa(BeolvasasInput);
-                        Console.WriteLine("Autó sikeresen beolvasva!");
                         Console.WriteLine("\n");
                         break; 
                     case ConsoleKey.F2:
@@ -113,7 +112,11 @@ namespace ConsoleAppJobbMintAzExcell
                                 Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
 
                             }
-                            else Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!");
+                            else 
+                            { 
+                                Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!"); 
+                                berlesBevitel = Console.ReadLine();
+                            }
                         } while (!helyesBerlesValasz);
                         Console.WriteLine("Szeretne Biztosítást? (Igen/Nem)");
                         string biztositasInput = Console.ReadLine();
@@ -157,14 +160,14 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         try
                         {
-                            if (berlesVege == DateTime.MinValue)
+                            if (berlesVege > DateTime.Now + TimeSpan.FromDays(90))
                             {
                                 Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
                                 Console.WriteLine("Kibérlés sikeres!");
                             }
                             else
                             {
-                                Console.WriteLine("Nem adott meg egy helyesen megformázott dátumot!");
+                                Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
                                 Console.WriteLine("Kibérlés sikertelen!");
                                 break;
                             }
@@ -291,7 +294,6 @@ namespace ConsoleAppJobbMintAzExcell
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(biztositVeszitoAuto).BiztositasTorlese();
-                            Console.WriteLine("Autó biztosításának törlése sikeres!");
                         }
                         catch (NullReferenceException)
                         {
@@ -314,7 +316,6 @@ namespace ConsoleAppJobbMintAzExcell
                             if (Autokolcsonzo.Autok[i].Nev == torlendoAuto)
                             {
                                 Autokolcsonzo.AutoTorlese(i);
-                                Console.WriteLine("Autó törlése sikeres!");
                                 break;
                             }
                             Console.WriteLine("Nincs ilyen autó a listában!");

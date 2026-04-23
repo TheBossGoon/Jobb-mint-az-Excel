@@ -56,7 +56,11 @@ namespace ConsoleAppJobbMintAzExcell
         }
         public void BiztositasTorlese()
         {
-            if (VanBiztositas == true) VanBiztositas = false;
+            if (VanBiztositas == true)
+            {
+                VanBiztositas = false;
+                Console.WriteLine("Autó biztosításának törlése sikeres!");
+            }
             else Console.WriteLine("Nincs biztosítás amit törölni lehetne!");
         }
         public void BiztositasHozzaadas()
@@ -89,7 +93,7 @@ namespace ConsoleAppJobbMintAzExcell
         {
             StringBuilder tostring = new StringBuilder($"Autó Neve:{this.Nev};\n\t Márka:{this.Marka};\n\t ");
             if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{this.BerlesAra};\n\t Van-e Bérelve:Van;\n\t Kiberlés Kezdete:{this.KiberlesKezdete};\n\t Kibérlés Vége:{this.KiberlesVege};\n\t ");
-            else tostring.Append("Van-e Bérelve:Nincs");
+            else tostring.Append("Van-e Bérelve:Nincs\n\t");
             if (this.VanBiztositas) tostring.Append($"Van-e Biztosítás:Van;");
             else tostring.Append($"Van-e Biztosítás:Nincs");
             return tostring.ToString();
