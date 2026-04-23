@@ -84,6 +84,7 @@ namespace ConsoleAppJobbMintAzExcell
         {
             using (StreamWriter sw = new StreamWriter(kiirtFajlNeve + ".txt"))
             {
+                sw.WriteLine("Autó neve; Márka; Bérlési ára; Bérelve van-e; Bérlés kezdete; Bérlés vége; Biztosítás van-e;");
                 foreach (Auto auto in autok)
                 {
                     sw.WriteLine($"{auto.Nev.Trim()};{auto.Marka};{auto.BerlesAra};{auto.VanBerelve};{auto.KiberlesKezdete};{auto.KiberlesVege};{auto.VanBiztositas};");

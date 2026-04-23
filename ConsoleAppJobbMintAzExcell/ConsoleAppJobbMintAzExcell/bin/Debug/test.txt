@@ -1,3 +1,4 @@
+Autó neve; Márka; Bérlési ára; Bérelve van-e; Bérlés kezdete; Bérlés vége; Biztosítás van-e;
 auto1;Opel;12331232;True;4/23/2026 11:26:01 PM;4/23/2026 11:26:01 PM;True;
 auto2;BYD;123;False;4/23/2026 11:26:01 PM;4/23/2026 11:26:01 PM;False;
 auto3;Volkswagen;-1;False;4/23/2026 11:26:04 PM;1/1/0001 12:00:00 AM;False;

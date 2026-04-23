@@ -15,8 +15,8 @@ namespace ConsoleAppJobbMintAzExcell
 
             bool mukszik = true;
 
-            Autokolcsonzo.FelVetel("auto1", "Opel", 12331232, true, DateTime.Now, DateTime.Now, true);
-            Autokolcsonzo.FelVetel("auto2", "BYD", 123, false, DateTime.Now, DateTime.Now, false);
+            //Autokolcsonzo.FelVetel("auto1", "Opel", 12331232, true, DateTime.Now, DateTime.Now, true);
+            //Autokolcsonzo.FelVetel("auto2", "BYD", 123, false, DateTime.Now, DateTime.Now, false);
 
 
             while (mukszik)
