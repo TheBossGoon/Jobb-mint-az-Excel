@@ -46,7 +46,7 @@ namespace ConsoleAppJobbMintAzExcell
                         string BeolvasasInput = Console.ReadLine();
                         Autokolcsonzo.AutokBeolvasasa(BeolvasasInput);
                         Console.WriteLine("\n");
-                        break; 
+                        break;
                     case ConsoleKey.F2:
                         Autokolcsonzo.AutokKiirasa();
                         Console.WriteLine("\n");
@@ -68,6 +68,11 @@ namespace ConsoleAppJobbMintAzExcell
                         }
                         Console.WriteLine("Márkáját (Opel, Toyota, BYD, Volkswagen, Tesla, Honda, BMW, Hyundai, Ford, Mercedes-Benz, Geely Group, Kia, Nissan, Porsche, Subaru, General Motors, GM, Volvo, Audi, Mazda, Ferrari, Suziki)");
                         marka = Console.ReadLine();
+                        if (!AutokolcsonzoRendszer.PartnerAutoMarkakListaja.Contains(marka))
+                        {
+                            Console.WriteLine("Ez az autó nem szerepel a partnereink közt!");
+                            break;
+                        }
                         Console.WriteLine("Van bérelve? (Igen/Nem)");
                         string berlesBevitel = Console.ReadLine();
 
@@ -91,16 +96,16 @@ namespace ConsoleAppJobbMintAzExcell
                                     if (berlesAra < 0)
                                     {
                                         Console.WriteLine("Bérlés ára nem lehet kisebb 0-nál!");
-                                        break;
+                                        continue;
                                     }
                                     Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
                                     try
                                     {
                                         kiberlesVege = DateTime.Parse(Console.ReadLine());
-                                        if (kiberlesVege <= kiberlesKezdete + TimeSpan.FromHours(24 * 90))
+                                        if (kiberlesVege <= kiberlesKezdete + TimeSpan.FromHours(24))
                                         {
-                                            Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
-                                            break;
+                                            Console.WriteLine("a kibérlés legalább 1 nappal a kibérlés kezdete után kell hogy legyen!");
+                                            continue;
                                         }
                                         helyesBerlesValasz = true;
                                     }
@@ -109,20 +114,25 @@ namespace ConsoleAppJobbMintAzExcell
                                         Console.WriteLine("Nem megfelelő a formázása a megadott idő az kért formázás alapján!");
                                     }
                                 }
-                                Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
+                                else
+                                {
+                                    Console.WriteLine("Csak számokból állhat az ár!");
+                                    berlesBevitel = Console.ReadLine();
+                                }
+                                //Console.WriteLine($"\nberles ara {berlesAraInput}\n\n");
 
                             }
-                            else 
-                            { 
-                                Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!"); 
+                            else
+                            {
+                                Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!");
                                 berlesBevitel = Console.ReadLine();
                             }
                         } while (!helyesBerlesValasz);
                         Console.WriteLine("Szeretne Biztosítást? (Igen/Nem)");
-                        string biztositasInput = Console.ReadLine();
                         bool helyesbiztositasInput = false;
                         do
                         {
+                            string biztositasInput = Console.ReadLine();
                             if (biztositasInput.ToLower() == "n" || berlesBevitel.ToLower() == "nem" || berlesBevitel.ToLower() == "no")
                             {
                                 helyesbiztositasInput = true;
@@ -131,6 +141,10 @@ namespace ConsoleAppJobbMintAzExcell
                             {
                                 helyesbiztositasInput = true;
                                 vanbiztositva = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Sajnálom, de ezt az utasítást nem értettem!");
                             }
                         } while (!helyesbiztositasInput);
 
@@ -147,6 +161,19 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Nem lehet \";\" vagy \";\" a névben!");
                             break;
                         }
+                        try
+                        {
+                            if (Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).VanBerelve)
+                            {
+                                Console.WriteLine("Ez az autó már bérelve van!");
+                                break;
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                            break;
+                        }
                         Console.WriteLine("Mikor legyen a bérlésnek vége? (Kérem az időt így formázza meg: ÉÉÉÉ.HH.NN)");
                         DateTime berlesVege = DateTime.MinValue;
                         try
@@ -158,24 +185,20 @@ namespace ConsoleAppJobbMintAzExcell
                             Console.WriteLine("Nem megfelelő időt adott meg a formázás alapján!");
                             break;
                         }
-                        try
+
+                        if (berlesVege > DateTime.Now + TimeSpan.FromDays(1))
                         {
-                            if (berlesVege > DateTime.Now + TimeSpan.FromDays(90))
-                            {
-                                Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
-                                Console.WriteLine("Kibérlés sikeres!");
-                            }
-                            else
-                            {
-                                Console.WriteLine("a kibérlés legalább a 3 hónappal a kibérlés kezdete után kell hogy legyen!");
-                                Console.WriteLine("Kibérlés sikertelen!");
-                                break;
-                            }
+                            Autokolcsonzo.AutoKereseseNevSzerint(kiberelendoAutoNeve).Berles(berlesVege);
+                            Console.WriteLine("Kibérlés sikeres!");
                         }
-                        catch (NullReferenceException)
+                        else
                         {
-                            Console.WriteLine("Ilyen kocsi nem létezik!");
+                            Console.WriteLine("a kibérlés legalább 1 nappal a kibérlés kezdete után kell hogy legyen!");
+                            Console.WriteLine("Kibérlés sikertelen!");
+                            break;
                         }
+
+
 
                         break;
                     case ConsoleKey.F5:
@@ -205,7 +228,7 @@ namespace ConsoleAppJobbMintAzExcell
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(berMegvaltatoztatandoNev).BerlesAranakValtoztatas(ujBerlesiAr);
-                            Console.WriteLine("Bér megváltoztatása sikeres!");
+                            
                         }
                         catch (NullReferenceException)
                         {
@@ -234,7 +257,7 @@ namespace ConsoleAppJobbMintAzExcell
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(megvaltatoztandoAuto).NevValtoztatas(amireValtozik);
-                            Console.WriteLine("Autó nevének megváltoztatása!");
+                            Console.WriteLine("Autó nevének megváltoztatása sikeres!");
                         }
                         catch (NullReferenceException)
                         {
@@ -274,7 +297,6 @@ namespace ConsoleAppJobbMintAzExcell
                         try
                         {
                             Autokolcsonzo.AutoKereseseNevSzerint(biztositandoAuto).BiztositasHozzaadas();
-                            Console.WriteLine("Autó biztosítása sikeres!");
                         }
                         catch (NullReferenceException)
                         {
@@ -318,7 +340,6 @@ namespace ConsoleAppJobbMintAzExcell
                                 Autokolcsonzo.AutoTorlese(i);
                                 break;
                             }
-                            Console.WriteLine("Nincs ilyen autó a listában!");
                         }
                         break;
                     case ConsoleKey.F12:

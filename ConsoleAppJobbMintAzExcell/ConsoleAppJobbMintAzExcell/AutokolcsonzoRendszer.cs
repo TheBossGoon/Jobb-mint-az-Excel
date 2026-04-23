@@ -14,7 +14,7 @@ namespace ConsoleAppJobbMintAzExcell
 
         public List<Auto> Autok { get => new List<Auto>(autok); }
 
-        HashSet<string> PartnerAutoMarkakListaja = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
+        internal static HashSet<string> PartnerAutoMarkakListaja = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
             "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
             "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
             "Ferrari", "Suziki"};

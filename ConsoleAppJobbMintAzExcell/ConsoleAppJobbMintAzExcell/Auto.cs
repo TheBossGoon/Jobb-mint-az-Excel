@@ -51,8 +51,13 @@ namespace ConsoleAppJobbMintAzExcell
         }
         public void BerlesAranakValtoztatas(long ujAr)
         {
-            if (ujAr >= 0) BerlesAra = ujAr;
+            if (ujAr >= 0)
+            {
+                BerlesAra = ujAr;
+                Console.WriteLine("Bér megváltoztatása sikeres!");
+            }
             else Console.WriteLine("Kérem adjon meg egy normális értéket!");
+
         }
         public void BiztositasTorlese()
         {
@@ -65,7 +70,11 @@ namespace ConsoleAppJobbMintAzExcell
         }
         public void BiztositasHozzaadas()
         {
-            if (VanBiztositas == false) VanBiztositas = true;
+            if (VanBiztositas == false)
+            {
+                VanBiztositas = true;
+                Console.WriteLine("Autó biztosítása sikeres!");
+            }
             else Console.WriteLine("Már van rajta biztosítás!");
         }
         public void Berles(DateTime BerlesVeg)
@@ -82,8 +91,8 @@ namespace ConsoleAppJobbMintAzExcell
             if (VanBerelve)
             {
                 VanBerelve = false;
-                KiberlesKezdete = new DateTime(0);
-                KiberlesVege = new DateTime(0);
+                KiberlesKezdete = DateTime.Now;
+                KiberlesVege = DateTime.MinValue;
             }
             else Console.WriteLine("Ez az autó nincs bérelve, azaz nincs mit törölni!");
 
@@ -92,10 +101,11 @@ namespace ConsoleAppJobbMintAzExcell
         public override string ToString()
         {
             StringBuilder tostring = new StringBuilder($"Autó Neve:{this.Nev};\n\t Márka:{this.Marka};\n\t ");
-            if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{this.BerlesAra};\n\t Van-e Bérelve:Van;\n\t Kiberlés Kezdete:{this.KiberlesKezdete};\n\t Kibérlés Vége:{this.KiberlesVege};\n\t ");
-            else tostring.Append("Van-e Bérelve:Nincs\n\t");
+            if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{this.BerlesAra};\n\t ");
+            if (this.VanBerelve) tostring.Append($"Van-e Bérelve:Van;\n\t Kiberlés Kezdete:{this.KiberlesKezdete};\n\t Kibérlés Vége:{this.KiberlesVege};\n\t ");
+            else tostring.Append("Van-e Bérelve:Nincs\n\t ");
             if (this.VanBiztositas) tostring.Append($"Van-e Biztosítás:Van;");
-            else tostring.Append($"Van-e Biztosítás:Nincs");
+            else tostring.Append($"Van-e Biztosítás:Nincs;");
             return tostring.ToString();
         }
 
