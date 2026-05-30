@@ -17,11 +17,6 @@ namespace ConsoleAppJobbMintAzExcell
         public bool VanBiztositas { get; private set; }
 
 
-        HashSet<string> LehetsegesAutoMarkak = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
-            "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
-            "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
-            "Ferrari", "Suziki"};
-
         public Auto(string Nev, string Marka, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
         {
             this.Nev = Nev;
@@ -35,7 +30,7 @@ namespace ConsoleAppJobbMintAzExcell
 
         public void NevValtoztatas(string ujNev)
         {
-            if (!LehetsegesAutoMarkak.Contains(ujNev)) Nev = ujNev;
+            if (!AutokolcsonzoRendszer.PartnerAutoMarkakListaja.Contains(ujNev)) Nev = ujNev;
             else Console.WriteLine("Ilyen automárka nem létezik!");
         }
         public void BerlesAranakValtoztatas(string ujAr)
@@ -81,6 +76,7 @@ namespace ConsoleAppJobbMintAzExcell
         {
             if (!VanBerelve)
             {
+                VanBerelve = true;  
                 KiberlesKezdete = DateTime.Now;
                 KiberlesVege = BerlesVeg;
             }
