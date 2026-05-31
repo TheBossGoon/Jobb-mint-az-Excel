@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppJobbMintAzExcell
 {
     internal class Auto
     {
-        public string Nev { get; private set; }
+        public string Rendszam { get; private set; }
         public string Marka { get; private set; }
         public long BerlesAra { get; private set; }
         public bool VanBerelve { get; private set; }
@@ -17,21 +14,26 @@ namespace ConsoleAppJobbMintAzExcell
         public bool VanBiztositas { get; private set; }
 
 
-        public Auto(string Nev, string Marka, long BerlesAra, bool VanBerelve, DateTime KiberlesKezdete, DateTime KiberlesVege, bool VanBiztositas)
+        public Auto(string rendszam, string marka, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
-            this.Nev = Nev;
-            this.Marka = Marka;
-            this.BerlesAra = BerlesAra;
-            this.VanBerelve = VanBerelve;
-            this.KiberlesKezdete = KiberlesKezdete;
-            this.KiberlesVege = KiberlesVege;
-            this.VanBiztositas = VanBiztositas;
+            Rendszam = rendszam;
+            Marka = marka;
+            BerlesAra = berlesAra;
+            VanBerelve = vanBerelve;
+            KiberlesKezdete = kiberlesKezdete;
+            KiberlesVege = kiberlesVege;
+            VanBiztositas = vanBiztositas;
         }
 
-        public void NevValtoztatas(string ujNev)
+        public void RendszamValtoztatas(string ujRendszam)
         {
-            if (!AutokolcsonzoRendszer.PartnerAutoMarkakListaja.Contains(ujNev)) Nev = ujNev;
-            else Console.WriteLine("Ilyen automárka nem létezik!");
+            if (string.IsNullOrWhiteSpace(ujRendszam) || ujRendszam.Contains(";") || ujRendszam.Contains(":"))
+            {
+                Console.WriteLine("Érvénytelen rendszám.");
+                return;
+            }
+
+            Rendszam = ujRendszam.Trim();
         }
         public void BerlesAranakValtoztatas(string ujAr)
         {
@@ -39,9 +41,13 @@ namespace ConsoleAppJobbMintAzExcell
             {
                 BerlesAranakValtoztatas(long.Parse(ujAr));
             }
-            catch
+            catch (FormatException)
             {
-                Console.WriteLine("Nem megfelelo elnevezes!");
+                Console.WriteLine("Nem megfelelő árat adott meg!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Nem megfelelő árat adott meg!");
             }
         }
         public void BerlesAranakValtoztatas(long ujAr)
@@ -72,13 +78,19 @@ namespace ConsoleAppJobbMintAzExcell
             }
             else Console.WriteLine("Már van rajta biztosítás!");
         }
-        public void Berles(DateTime BerlesVeg)
+        public void Berles(DateTime berlesVege)
         {
             if (!VanBerelve)
             {
+                if (berlesVege.Date < DateTime.Now.Date.AddDays(1))
+                {
+                    Console.WriteLine("A bérlés vége legalább 1 nappal későbbi legyen.");
+                    return;
+                }
+
                 VanBerelve = true;  
                 KiberlesKezdete = DateTime.Now;
-                KiberlesVege = BerlesVeg;
+                KiberlesVege = berlesVege;
             }
             else Console.WriteLine("Már bérelve van");
         }
@@ -96,11 +108,11 @@ namespace ConsoleAppJobbMintAzExcell
 
         public override string ToString()
         {
-            StringBuilder tostring = new StringBuilder($"Autó Neve:{this.Nev};\n\t Márka:{this.Marka};\n\t ");
-            if (this.BerlesAra != -1) tostring.Append($"Bérlés Ára:{this.BerlesAra};\n\t ");
-            if (this.VanBerelve) tostring.Append($"Van-e Bérelve:Van;\n\t Kiberlés Kezdete:{this.KiberlesKezdete};\n\t Kibérlés Vége:{this.KiberlesVege};\n\t ");
+            StringBuilder tostring = new StringBuilder($"Autó rendszáma:{Rendszam};\n\t Márka:{Marka};\n\t ");
+            if (BerlesAra != -1) tostring.Append($"Bérlés Ára:{BerlesAra};\n\t ");
+            if (VanBerelve) tostring.Append($"Van-e Bérelve:Van;\n\t Bérlés Kezdete:{KiberlesKezdete};\n\t Bérlés Vége:{KiberlesVege};\n\t ");
             else tostring.Append("Van-e Bérelve:Nincs\n\t ");
-            if (this.VanBiztositas) tostring.Append($"Van-e Biztosítás:Van;");
+            if (VanBiztositas) tostring.Append($"Van-e Biztosítás:Van;");
             else tostring.Append($"Van-e Biztosítás:Nincs;");
             return tostring.ToString();
         }

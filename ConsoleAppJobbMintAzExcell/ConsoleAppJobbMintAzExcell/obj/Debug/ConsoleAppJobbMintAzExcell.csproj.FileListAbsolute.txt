@@ -7,7 +7,6 @@ C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMin
 C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.csproj.CoreCompileInputs.cache
 C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.exe
 C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.pdb
-C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.exe.config
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\bin\Debug\ConsoleAppJobbMintAzExcell.exe.config
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\bin\Debug\ConsoleAppJobbMintAzExcell.exe
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\bin\Debug\ConsoleAppJobbMintAzExcell.pdb
@@ -16,3 +15,4 @@ C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\Con
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.csproj.CoreCompileInputs.cache
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.exe
 C:\Users\tanulo\Documents\godo\projektek\new-game-project\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.pdb
+C:\Users\puham\OneDrive\Dokumentumok\github\Jobb-mint-az-Excel\ConsoleAppJobbMintAzExcell\ConsoleAppJobbMintAzExcell\obj\Debug\ConsoleAppJobbMintAzExcell.exe.config

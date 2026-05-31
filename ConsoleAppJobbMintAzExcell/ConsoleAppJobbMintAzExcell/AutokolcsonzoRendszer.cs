@@ -1,42 +1,62 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppJobbMintAzExcell
 {
     internal class AutokolcsonzoRendszer
     {
-        List<Auto> autok;
+        private readonly List<Auto> autok;
 
         public List<Auto> Autok { get => new List<Auto>(autok); }
 
-        internal static HashSet<string> PartnerAutoMarkakListaja = new HashSet<string>{"Opel", "Toyota", "BYD", "Volkswagen", "Tesla",
-            "Honda", "BMW", "Hyundai", "Ford", "Mercedes-Benz", "Geely Group", "Kia",
-            "Nissan", "Porsche", "Subaru", "General Motors", "GM", "Volvo", "Audi","Mazda",
-            "Ferrari", "Suziki"};
+        internal static HashSet<string> PartnerAutoMarkakListaja = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "Opel", "Toyota", "BYD", "Volkswagen", "Tesla", "Honda", "BMW", "Hyundai",
+            "Ford", "Mercedes-Benz", "Geely Group", "Kia", "Nissan", "Porsche", "Subaru",
+            "General Motors", "GM", "Volvo", "Audi", "Mazda", "Ferrari", "Suzuki"
+        };
 
         public AutokolcsonzoRendszer()
         {
-            this.autok = new List<Auto>();
+            autok = new List<Auto>();
         }
 
-        public void FelVetel(string neve, string marka, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
+        public bool FelVetel(string rendszam, string marka, long berlesAra, bool vanBerelve, DateTime kiberlesKezdete, DateTime kiberlesVege, bool vanBiztositas)
         {
-
-            Auto auto = new Auto(neve, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
-            if (PartnerAutoMarkakListaja.Contains(marka))
+            if (string.IsNullOrWhiteSpace(rendszam))
             {
-                autok.Add(auto);
-            }
-            else
-            {
-                Console.WriteLine("Nincs ilyen nevű kocsi a partner márkák listájában.");
+                Console.WriteLine("A rendszám nem lehet üres.");
+                return false;
             }
 
+            if (AutoKereseseRendszamSzerint(rendszam) != null)
+            {
+                Console.WriteLine("Ilyen rendszámú autó már szerepel a rendszerben.");
+                return false;
+            }
+
+            if (!PartnerAutoMarkakListaja.Contains(marka))
+            {
+                Console.WriteLine("Nincs ilyen márkájú kocsi a partner márkák listájában.");
+                return false;
+            }
+
+            if (berlesAra < 0)
+            {
+                Console.WriteLine("A bérlési ár nem lehet negatív.");
+                return false;
+            }
+
+            if (vanBerelve && kiberlesVege.Date < kiberlesKezdete.Date.AddDays(1))
+            {
+                Console.WriteLine("A bérlés vége legalább 1 nappal a kezdés után lehet.");
+                return false;
+            }
+
+            autok.Add(new Auto(rendszam.Trim(), marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas));
+            return true;
         }
 
         public void AutokBeolvasasa(string beolvasandoFajl)
@@ -45,24 +65,35 @@ namespace ConsoleAppJobbMintAzExcell
             {
                 using (StreamReader sr = new StreamReader(beolvasandoFajl + ".txt"))
                 {
-                    string header = sr.ReadLine();
+                    sr.ReadLine();
+                    int beolvasottSorokSzama = 0;
+                    int hibasSorokSzama = 0;
+
                     while (!sr.EndOfStream)
                     {
-                        string[] sor = sr.ReadLine().Split(';');
-                        string[] tarto = new string[7];
-
-                        for (int i = 0; i < 7; i++)
+                        Auto auto;
+                        if (TryAutoBeolvasasaSorbol(sr.ReadLine(), out auto)
+                            && FelVetel(auto.Rendszam, auto.Marka, auto.BerlesAra, auto.VanBerelve, auto.KiberlesKezdete, auto.KiberlesVege, auto.VanBiztositas))
                         {
-                            tarto[i] = sor[i];
+                            beolvasottSorokSzama++;
                         }
-                        FelVetel(tarto[0], tarto[1], long.Parse(tarto[2]), Convert.ToBoolean(tarto[3]), Convert.ToDateTime(tarto[4]), Convert.ToDateTime(tarto[5]), Convert.ToBoolean(tarto[6]));
+                        else
+                        {
+                            hibasSorokSzama++;
+                        }
                     }
+
+                    Console.WriteLine($"Sikeres beolvasás: {beolvasottSorokSzama} autó.");
+                    if (hibasSorokSzama > 0) Console.WriteLine($"Kihagyott hibás vagy duplikált sorok száma: {hibasSorokSzama}.");
                 }
-                Console.WriteLine("Sikeres volt a fájl beolvasás.");
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine("Nem létező fájl nevet adott meg, próbálja meg újra!");
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("A fájl beolvasása közben hiba történt.");
             }
         }
 
@@ -72,7 +103,6 @@ namespace ConsoleAppJobbMintAzExcell
             {
                 autok.RemoveAt(bekertIndex);
                 Console.WriteLine("Autó törlése sikeres!");
-
             }
             else
             {
@@ -80,37 +110,100 @@ namespace ConsoleAppJobbMintAzExcell
             }
         }
 
-        public void AutokListajanakKiirasaKulonFajlba(string kiirtFajlNeve)
+        public bool AutokListajanakKiirasaKulonFajlba(string kiirtFajlNeve)
         {
-            using (StreamWriter sw = new StreamWriter(kiirtFajlNeve + ".txt"))
+            try
             {
-                sw.WriteLine("Autó neve; Márka; Bérlési ára; Bérelve van-e; Bérlés kezdete; Bérlés vége; Biztosítás van-e;");
-                foreach (Auto auto in autok)
+                using (StreamWriter sw = new StreamWriter(kiirtFajlNeve + ".txt"))
                 {
-                    sw.WriteLine($"{auto.Nev.Trim()};{auto.Marka};{auto.BerlesAra};{auto.VanBerelve};{auto.KiberlesKezdete};{auto.KiberlesVege};{auto.VanBiztositas};");
+                    sw.WriteLine("Autó rendszáma; Márka; Bérlési ára; Bérelve van-e; Bérlés kezdete; Bérlés vége; Biztosítás van-e;");
+                    foreach (Auto auto in autok)
+                    {
+                        sw.WriteLine($"{auto.Rendszam.Trim()};{auto.Marka};{auto.BerlesAra};{auto.VanBerelve};{auto.KiberlesKezdete:yyyy.MM.dd};{auto.KiberlesVege:yyyy.MM.dd};{auto.VanBiztositas};");
+                    }
                 }
+
+                return true;
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("A fájl írása közben hiba történt.");
+                return false;
             }
         }
 
-        public Auto AutoKereseseNevSzerint(string eztKeresd)
+        public Auto AutoKereseseRendszamSzerint(string eztKeresd)
         {
+            if (string.IsNullOrWhiteSpace(eztKeresd)) return null;
+
             for (int i = 0; i < autok.Count; i++)
             {
-                if (autok[i].Nev == eztKeresd)
+                if (autok[i].Rendszam.Equals(eztKeresd.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
                     return autok[i];
                 }
             }
+
             return null;
+        }
+
+        public void AutoTorleseRendszamSzerint(string rendszam)
+        {
+            Auto torlendoAuto = AutoKereseseRendszamSzerint(rendszam);
+            if (torlendoAuto == null)
+            {
+                Console.WriteLine("Ilyen rendszámú autó nem létezik!");
+                return;
+            }
+
+            autok.Remove(torlendoAuto);
+            Console.WriteLine("Autó törlése sikeres!");
         }
 
         public void AutokKiirasa()
         {
+            if (autok.Count == 0)
+            {
+                Console.WriteLine("Nincs autó a rendszerben.");
+                return;
+            }
+
             for (int i = 0; i < autok.Count; i++)
             {
-                Console.WriteLine($"[{i + 1}] - {autok[i].ToString()}");
+                Console.WriteLine($"[{i + 1}] - {autok[i]}");
             }
         }
 
+        private bool TryAutoBeolvasasaSorbol(string sor, out Auto auto)
+        {
+            auto = null;
+            if (string.IsNullOrWhiteSpace(sor)) return false;
+
+            string[] adatok = sor.Split(';');
+            if (adatok.Length < 7) return false;
+
+            string rendszam = adatok[0].Trim();
+            string marka = adatok[1].Trim();
+            long berlesAra;
+            bool vanBerelve;
+            DateTime kiberlesKezdete;
+            DateTime kiberlesVege;
+            bool vanBiztositas;
+
+            if (!long.TryParse(adatok[2], out berlesAra)) return false;
+            if (!bool.TryParse(adatok[3], out vanBerelve)) return false;
+            if (!TryParseDate(adatok[4], out kiberlesKezdete)) return false;
+            if (!TryParseDate(adatok[5], out kiberlesVege)) return false;
+            if (!bool.TryParse(adatok[6], out vanBiztositas)) return false;
+
+            auto = new Auto(rendszam, marka, berlesAra, vanBerelve, kiberlesKezdete, kiberlesVege, vanBiztositas);
+            return true;
+        }
+
+        private bool TryParseDate(string input, out DateTime datum)
+        {
+            return DateTime.TryParseExact(input, "yyyy.MM.dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out datum)
+                || DateTime.TryParse(input, out datum);
+        }
     }
 }

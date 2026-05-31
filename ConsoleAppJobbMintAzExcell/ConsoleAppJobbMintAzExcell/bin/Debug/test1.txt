@@ -1,0 +1,2 @@
+Autó rendszáma; Márka; Bérlési ára; Bérelve van-e; Bérlés kezdete; Bérlés vége; Biztosítás van-e;
+test1;opel;720;False;2026.05.31;0001.01.01;False;
